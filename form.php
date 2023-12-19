@@ -11,7 +11,7 @@
 <body>
     <form class="text-center m-5" action="password.php" method="GET">
         <label class="form-label" for="number">Lunghezza Password da generare: </label>
-        <input class="ms-3" type="number" name="lunghezzaPassword" min="5" max="16">
+        <input class="ms-3" type="number" name="lunghezzaPassword" min="5" max="16" required>
         <button class="btn btn-primary" type="submit">Genera</button>
     </form>
 </body>

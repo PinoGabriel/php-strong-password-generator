@@ -10,24 +10,43 @@
 
 <?php
 if (isset($_GET['lunghezzaPassword'])) {
-    $lunghezzaPassword  = $_GET['lunghezzaPassword'];
+    $lunghezzaPassword = $_GET['lunghezzaPassword'];
 }
 
-function generaPassword($lunghezza)
+$caratteri = [
+    'abcdefghijklmnopqrstuvwxyz',
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    '0123456789',
+    '!#&?'
+];
+
+function generaPassword($lunghezza, $caratteri)
 {
     $parola = "";
     for ($i = 0; $i < $lunghezza; $i++) {
-        $parola .= "ciao";
+        $categoriaCasuale = rand(0, 3);
+        $last = strlen($caratteri[$categoriaCasuale]) - 1;
+        $parola .= $caratteri[$categoriaCasuale][rand(0, $last)];
     }
 
     return $parola;
 }
 
-$password = generaPassword($lunghezzaPassword)
+$password = generaPassword($lunghezzaPassword, $caratteri)
 ?>
 
 <body>
-    <h1><?php echo $password; ?></h1>
+    <div class="text-center mt-5">
+        <h1>La tua password è: </h1>
+        <h3><?php if ($password >= 5) {
+                echo $password;
+            } else {
+                echo "Nessun numero inserito";
+            } ?></h3>
+        <form action="form.php">
+            <button class="mt-5 btn btn-primary" type="submit">Torna al generatore</button>
+        </form>
+    </div>
 </body>
 
 </html>
