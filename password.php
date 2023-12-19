@@ -38,7 +38,7 @@ $password = generaPassword($lunghezzaPassword, $caratteri)
 <body>
     <div class="text-center mt-5">
         <h1>La tua password è: </h1>
-        <h3><?php if ($password >= 5) {
+        <h3><?php if (strlen($password) >= 5) {
                 echo $password;
             } else {
                 echo "Nessun numero inserito";
