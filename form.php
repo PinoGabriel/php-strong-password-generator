@@ -40,6 +40,17 @@
                 <input class="form-check-input" type="checkbox" name="simboli" value="S" id="simboli">
             </div>
         </div>
+        <div class="container row my-5 mx-auto col-12">
+            <label class="form-label col-6" for="ripetizioneCaratteri">Ripetizione di caratteri:</label>
+            <div>
+                <input class="form-check-input" type="radio" name="ripetizioneCaratteri" value="1" id="ripetizioneSi" checked>
+                <label class="form-check-label" for="ripetizioneSi">Sì</label>
+            </div>
+            <div>
+                <input class="form-check-input" type="radio" name="ripetizioneCaratteri" value="0" id="ripetizioneNo">
+                <label class="form-check-label" for="ripetizioneNo">No</label>
+            </div>
+        </div>
 
 
         <button class="btn btn-primary" type="submit">Genera</button>
