@@ -1,4 +1,16 @@
 <?php
+
+if (isset($_GET['lunghezzaPassword'])) {
+    $lunghezzaPassword = $_GET['lunghezzaPassword'];
+}
+
+$caratteri = [
+    'abcdefghijklmnopqrstuvwxyz',
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    '0123456789',
+    '!#&?<>'
+];
+
 function generaPassword($lunghezza, $caratteri)
 {
     $parola = "";
@@ -8,5 +20,7 @@ function generaPassword($lunghezza, $caratteri)
         $parola .= $caratteri[$categoriaCasuale][rand(0, $last)];
     }
 
-    return $parola;
-}
+    return htmlspecialchars($parola);
+};
+
+$password = generaPassword($lunghezzaPassword, $caratteri);

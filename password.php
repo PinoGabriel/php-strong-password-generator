@@ -10,29 +10,15 @@
 
 <?php
 include __DIR__ . "/functions.php";
-
-if (isset($_GET['lunghezzaPassword'])) {
-    $lunghezzaPassword = $_GET['lunghezzaPassword'];
-}
-
-$caratteri = [
-    'abcdefghijklmnopqrstuvwxyz',
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    '0123456789',
-    '!#&?'
-];
-
-$password = generaPassword($lunghezzaPassword, $caratteri)
-
 ?>
 
 <body>
     <div class="text-center mt-5">
         <h1>La tua password è: </h1>
-        <h3><?php if (strlen($password) >= 5) {
+        <h3><?php if (strlen($password) >= 5 && strlen($password) <= 16) {
                 echo $password;
             } else {
-                echo "Nessun numero inserito";
+                echo "La password generata non rispetta i criteri di lunghezza.";
             } ?></h3>
         <form action="form.php">
             <button class="mt-5 btn btn-primary" type="submit">Torna al generatore</button>
